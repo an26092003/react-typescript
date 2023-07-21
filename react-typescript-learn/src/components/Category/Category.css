@@ -1,0 +1,12 @@
+h1{
+    text-align: left;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 30px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-left: 10px;
+}
+.category{
+    padding-top: 80px;
+}

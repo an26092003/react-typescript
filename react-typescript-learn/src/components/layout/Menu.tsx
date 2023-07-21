@@ -52,29 +52,31 @@ const Menu: React.FC = () => {
     );
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="light" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand href="/">
-                    <img src="https://www.shareicon.net/download/2016/07/10/119874_apps.ico" alt="Logo" className="menu__logo" /> {/* Replace "/path/to/logo.png" with the actual path to your logo image */}
+                    <img src="https://aristino.com/Data/upload/images/Logo/logo%20Aristino%20Final%202023%20(2).png" alt="Logo" className="menu__logo" /> {/* Replace "/path/to/logo.png" with the actual path to your logo image */}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#about">About</Nav.Link>
-                        <NavDropdown title="Services" id="basic-nav-dropdown" >
-                            <NavDropdown.Item href="#service1">Service 1</NavDropdown.Item>
-                            <NavDropdown.Item href="#service2">Service 2</NavDropdown.Item>
+                    <Nav className="me-auto" >
+                        <Nav.Link href="#home"  className='link' style={{color: '#000', padding: '8px 20px', fontWeight: '600', textTransform: 'uppercase', fontSize: '13px'}}>trang chủ</Nav.Link>
+                        <Nav.Link href="#about" className='link' style={{color: '#000', padding: '8px 20px', fontWeight: '600', textTransform: 'uppercase', fontSize: '13px'}}>sản phẩm</Nav.Link>
+                        {/* <Nav.Link href="#about" className='link' style={{color: '#000', padding: '8px 20px', fontWeight: '600', textTransform: 'uppercase', fontSize: '13px'}}>phụ kiên</Nav.Link> */}
+                        <Nav.Link href="#about" className='link' style={{color: '#000', padding: '8px 20px', fontWeight: '600', textTransform: 'uppercase', fontSize: '13px'}}>bộ sưu tập</Nav.Link>
+                        {/* <NavDropdown title="Services" id="basic-nav-dropdown" style={{color: '#000'}}>
+                            <NavDropdown.Item href="#service1" style={{color: '#000'}}>Service 1</NavDropdown.Item>
+                            <NavDropdown.Item href="#service2" style={{color: '#000'}}>Service 2</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#all-services">All Services</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="#contact">Contact</Nav.Link>
+                            <NavDropdown.Item href="#all-services" style={{color: '#000'}}>All Services</NavDropdown.Item>
+                        </NavDropdown> */}
+                        <Nav.Link href="#contact" style={{color: '#000', padding: '8px 20px', fontWeight: '600', textTransform: 'uppercase', fontSize: '13px'}}>về chúng tôi</Nav.Link>
                     </Nav>
                     <Form className="d-flex" onSubmit={handleSearchSubmit}>
-                        <InputGroup>
+                        <InputGroup style={{border: '1px solid #ccc', borderRadius: '8px'}}>
                             <Form.Control
                                 type="text"
-                                placeholder="Search"
+                                placeholder="Search"    
                                 value={searchText}
                                 onChange={handleSearchChange}
                                 className="border-0 rounded-start search-input"
@@ -87,14 +89,14 @@ const Menu: React.FC = () => {
                     <Nav>
                         <OverlayTrigger trigger="click" placement="bottom" show={showPopover} onToggle={togglePopover} overlay={popover}>
                             <Nav.Link>
-                                <FontAwesomeIcon icon={faUser} />
+                                <FontAwesomeIcon style={{color: '#212529', paddingLeft: '12px', paddingRight: '12px'}} icon={faUser} />
                             </Nav.Link>
                         </OverlayTrigger>
                         <Nav.Link>
-                            <FontAwesomeIcon icon={faRightFromBracket} />
+                            <FontAwesomeIcon style={{color: '#212529', paddingLeft: '12px', paddingRight: '12px'}} icon={faRightFromBracket} />
                         </Nav.Link>
                         <Nav.Link>
-                            <FontAwesomeIcon icon={faBell} />
+                            <FontAwesomeIcon style={{color: '#212529', paddingLeft: '12px', paddingRight: '12px'}} icon={faBell} />
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
