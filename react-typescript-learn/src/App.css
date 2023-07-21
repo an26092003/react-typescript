@@ -46,8 +46,8 @@
   justify-content: space-around;
 }
 .menu__logo {
-  width:60px;
-  height: 60px;
+  /* width:60px;
+  height: 60px; */
 }
 
 
@@ -57,6 +57,7 @@
   line-height: 40px;
   text-align: center;
   flex:1;
+   color: #000
 }
 .nav__ul2 {
   width: 100%;
@@ -65,11 +66,10 @@
   text-align: center;
   font-size: 18px;
   flex:1;
+   color: #000
 }
 
-.slider_img {
-  height: 500px;
-}
+
 
 .modal-container{
   position: fixed;

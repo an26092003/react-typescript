@@ -1,0 +1,27 @@
+.banner{
+    position: relative;
+}
+.banner-text{
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 40%;
+    text-align: center;
+    
+}
+h2{
+    color: #fff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+}
+h3{
+    text-align: center;
+    margin: 50px auto 0;
+    color: #fff;
+    font-weight: 400;
+    max-width: 80px;
+    border-bottom: 1px solid #fff;
+    line-height: 50px;
+    font-size: 16px;
+}

@@ -1,0 +1,40 @@
+
+.carousel {
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 80px;
+}
+.box__slider{
+  padding: 10px;
+}
+.box__slider:focus-visible {
+  border: none;
+  
+    
+    
+  }
+  
+  /* .slick-pre{
+    z-index: 100;
+  position: absolute;  
+  top: 50%;
+  left: 0;
+  }
+  .slick-next{
+  position: absolute;  
+  } */
+  img{
+    width: 100%;
+  }
+  .content{
+    margin: 10px 0 40px!important;
+
+  }
+  .content>h3{
+    margin-top: 10px;
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    text-transform: uppercase;
+    height: 30px;
+  }

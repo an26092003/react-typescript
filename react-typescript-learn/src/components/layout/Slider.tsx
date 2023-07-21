@@ -7,49 +7,37 @@ const Slider = () => {
             <Carousel.Item>
                 <img
                     className="d-block w-100 slider_img"
-                    src="https://phunugioi.com/wp-content/uploads/2021/11/Background-bau-troi-background-sky-cho-may-tinh.jpg"
+                    src="https://aristino.com/Data/upload/images/BANNER/N%C4%83m%202023/Banner-Aristino-golf-1920x900-Zip.jpg"
                     alt="Slide 1"
                 />
-                <Carousel.Caption>
-                    <h3>Slide 1</h3>
-                    <p>Description of slide 1</p>
-                </Carousel.Caption>
+                
             </Carousel.Item>
 
             <Carousel.Item>
                 <img
                     className="d-block w-100 slider_img"
-                    src="https://toigingiuvedep.vn/wp-content/uploads/2021/06/hinh-anh-bau-troi-hoang-hon-danh-cho-may-tinh.jpg"
+                    src="https://aristino.com/Data/upload/images/BANNER/N%C4%83m%202023/T6-2023/Banner-web-aristino-desktop-1.jpg"
                     alt="Slide 2"
                 />
-                <Carousel.Caption>
-                    <h3>Slide 2</h3>
-                    <p>Description of slide 2</p>
-                </Carousel.Caption>
+                
             </Carousel.Item>
 
             <Carousel.Item>
                 <img
                     className="d-block w-100 slider_img"
-                    src="https://inkythuatso.com/uploads/thumbnails/800/2023/02/5-hinh-anh-bau-troi-trong-xanh-dep-binh-yen-va-tho-mong-inkythuatso-06-16-55-26.jpg"
+                    src="https://aristino.com/Data/upload/images/BANNER/N%C4%83m%202023/Banner-Aristino-Mobile-KV_1920x900.jpg"
                     alt="Slide 3"
                 />
-                <Carousel.Caption>
-                    <h3>Slide 3</h3>
-                    <p>Description of slide 3</p>
-                </Carousel.Caption>
+                
             </Carousel.Item>
 
             <Carousel.Item>
                 <img
-                    className="d-block w-100 slider_img"
-                    src="https://kynguyenlamdep.com/wp-content/uploads/2021/12/bau-troi-chieu-scaled.jpg"
+                    className="d-block w-100 h-auto slider_img"
+                    src="https://aristino.com/Data/upload/images/BANNER/T03-2023/Banner-Aristino-Online-2023-Desktop.jpg"
                     alt="Slide 4"
                 />
-                <Carousel.Caption>
-                    <h3>Slide 4</h3>
-                    <p>Description of slide 4</p>
-                </Carousel.Caption>
+                
             </Carousel.Item>
         </Carousel>
     );
