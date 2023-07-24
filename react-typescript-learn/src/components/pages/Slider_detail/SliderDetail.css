@@ -1,0 +1,30 @@
+
+img{
+  width: 100%;
+}
+.content{
+  margin: 10px 0 40px!important;
+}
+.content>h3{
+  margin-top: 10px;
+  text-align: left;
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  text-transform: uppercase;
+  height: 30px;
+}
+
+.Slider__nho {
+  width: 75%;
+}
+.box__slider--nho {
+  padding: 10px;
+  border:none;
+  margin-bottom: 70px;
+
+}
+
+.box__slider--nho>img {
+  height: 350px;
+}

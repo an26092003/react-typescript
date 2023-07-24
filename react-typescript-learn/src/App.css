@@ -83,3 +83,30 @@
   top:50px;
   right:20px;
 } */
+
+.tab__box {
+  /* background: orangered; */
+}
+
+.slider_mr div {
+  margin: 0 10px;
+}
+.slider_mr {
+  /* width: 100%;
+   */
+  height: 400px;
+}
+
+.box__slider {
+  /* width: 200px; */
+  height: 300px;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+}
+
+.box__slider  >img {
+  margin: 0 auto;
+  padding: 15px 0;
+  width: 150px;
+  height: 200px;
+}
