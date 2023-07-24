@@ -15,8 +15,8 @@ const HomePage = () => {
           <div className="banner">
               <img className="d-block w-100" src="https://aristino.com/Data/upload/images/Adv/slide-home-1/he-thong-cua-hang.jpg" alt="" />
               <div className="banner-text">
-              <h2>HỆ THỐNG CỬA HÀNG</h2>
-              <h3>TÌM NGAY</h3>
+              <h2 className="system">HỆ THỐNG CỬA HÀNG</h2>
+              <h3 className="search">TÌM NGAY</h3>
               </div>
           </div>
       </>
