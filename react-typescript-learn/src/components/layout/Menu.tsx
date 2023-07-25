@@ -53,7 +53,9 @@ const Menu: React.FC = () => {
     );
 
     return (
-        <Navbar bg="light" style={{ borderBottom: '1px solid #ccc', height: '72px', position: 'fixed', top: '0', left: '0', right: '0', zIndex: '5' }} variant="dark" expand="lg">
+
+        <Navbar bg="light" style={{borderBottom: '1px solid #ccc', height: '72px', position: 'fixed', top: '0', left: '0', right: '0', zIndex: '5'}} variant="dark" expand="lg">
+
             <Container>
 
                 <Navbar.Brand href="/">
