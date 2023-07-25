@@ -1,0 +1,31 @@
+.card {
+    width: 100%;
+    height: auto;
+    margin:0 auto;
+}
+.table {
+    width: 1100px;
+    height: 700px;
+    /* background-color: orangered; */
+    margin: 0 auto;
+    margin-top: 90px;
+}
+
+.table > tbody > tr> td > img {
+    width: 200px;
+    height: 300px;
+}
+
+.des {
+    width: 300px;
+}
+
+.mua,.xoa {
+    padding: 5px 20px;
+    margin: 5px;
+}
+
+.link__card {
+    color:#fff;
+    text-decoration: none;
+}
