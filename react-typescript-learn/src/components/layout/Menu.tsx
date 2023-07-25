@@ -52,7 +52,7 @@ const Menu: React.FC = () => {
     );
 
     return (
-        <Navbar bg="light" style={{borderBottom: '1px solid #ccc', height: '72px', position: 'fixed', top: '0', left: '0', right: '0'}} variant="dark" expand="lg">
+        <Navbar bg="light" style={{borderBottom: '1px solid #ccc', height: '72px', position: 'fixed', top: '0', left: '0', right: '0', zIndex: '5'}} variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand href="/">
                     <img src="https://aristino.com/Data/upload/images/Logo/logo%20Aristino%20Final%202023%20(2).png" alt="Logo" className="menu__logo" /> {/* Replace "/path/to/logo.png" with the actual path to your logo image */}
