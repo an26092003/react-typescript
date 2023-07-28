@@ -1,6 +1,6 @@
 
 .carousel {
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid hsl(0, 0%, 80%);
   margin-bottom: 80px;
 }
 .box__slider{
