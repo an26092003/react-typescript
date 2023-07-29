@@ -1699,6 +1699,7 @@
     "@swc/helpers" "^0.5.0"
 
 "@remix-run/router@1.7.2":
+
   "integrity" "sha512-7Lcn7IqGMV+vizMPoEl5F0XDshcdDYtMI6uJLQdQz5CfZAwy3vvGKYSUk789qndt5dEC4HfSjviSYlSoHGL2+A=="
   "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.7.2.tgz"
   "version" "1.7.2"
@@ -3296,6 +3297,7 @@
     "normalize-path" "~3.0.0"
     "readdirp" "~3.6.0"
   optionalDependencies:
+
     "fsevents" "~2.3.2"
 
 "chrome-trace-event@^1.0.2":
@@ -3343,6 +3345,7 @@
   "integrity" "sha512-q5/jG+YQnSy4nRTV4F7lPepBJZ8qBNJJDBuJdoejDyLXgmL7IEo+Le2JDZudFTFt7mrCqIRaSjws4ygRCTCAXA=="
   "resolved" "https://registry.npmjs.org/coa/-/coa-2.0.2.tgz"
   "version" "2.0.2"
+
   dependencies:
     "@types/q" "^1.5.1"
     "chalk" "^2.4.1"
@@ -7798,6 +7801,7 @@
   "version" "12.0.1"
   dependencies:
     "@babel/code-frame" "^7.16.0"
+
     "address" "^1.1.2"
     "browserslist" "^4.18.1"
     "chalk" "^4.1.2"
@@ -7882,14 +7886,17 @@
   "integrity" "sha512-5pWX0jdKR48XFZBuJqHosX3AAHjRAzygouMTyimnBPOLdY3WjzUSKhus2FVMihUFWzeLebDgr4r8UeQFAct7Bg=="
   "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.14.2.tgz"
   "version" "6.14.2"
+
   dependencies:
     "@remix-run/router" "1.7.2"
     "react-router" "6.14.2"
+
 
 "react-router@6.14.2":
   "integrity" "sha512-09Zss2dE2z+T1D03IheqAFtK4UzQyX8nFPWx6jkwdYzGLXd5ie06A6ezS2fO6zJfEb/SpG6UocN2O1hfD+2urQ=="
   "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.14.2.tgz"
   "version" "6.14.2"
+
   dependencies:
     "@remix-run/router" "1.7.2"
 
@@ -7963,6 +7970,7 @@
   "integrity" "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="
   "resolved" "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
   "version" "4.4.5"
+
   dependencies:
     "@babel/runtime" "^7.5.5"
     "dom-helpers" "^5.0.1"

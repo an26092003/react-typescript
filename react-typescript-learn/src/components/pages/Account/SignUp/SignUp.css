@@ -1,0 +1,144 @@
+.account__signup {
+    background: url(https://aristino.com/Data/upload/images/Adv/slide-home-1/he-thong-cua-hang.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__signup {
+    width: 600px;
+    height: 550px;
+    /* background: transparent;
+     */
+    backdrop-filter: blur(10px);
+    margin: 180px auto 80px auto;
+    padding: 30px;
+    border: 2px solid #5b5a5a;
+    border-radius: 20px;
+}
+
+.form__signiup > h2 {
+    color:rgb(149, 149, 149);
+}
+
+.from__control {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.from__control > label {
+    text-align: left;
+    align-items: left;
+    /* color: aliceblue; */
+    color:rgb(149, 149, 149);
+    display: flex;
+    height: 25px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.from__control > label:hover {
+    color: orangered;
+}
+
+.from__control > label >p {
+    padding: 0 5px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.icon {
+    font-size: 15px;
+    height: 80%;
+}
+
+
+.pass__input {
+    display: flex;
+    height: 30px;
+}
+.button__eye {
+    border: 1px solid white;
+    border-radius: 3px;
+    /* border-bottom: 2px solid rgb(149, 149, 149); */
+    background: transparent;
+    color: white;
+    width: 5%;
+}
+
+.input_signup {
+    border: none;
+    border-bottom: 2px solid rgb(149, 149, 149);
+    background: none;
+    width: 85%;
+    margin: 5px auto;
+    padding: 5px 15px;
+    color: aliceblue;
+}
+
+.input_signup:focus {
+    outline: none;
+
+}
+
+.from__control > .input__signup {
+    border: none;
+    border-bottom: 2px solid rgb(149, 149, 149);
+    background: none;
+    width: 90%;
+    margin: 5px auto;
+    padding: 5px 15px;
+    color: aliceblue;
+}
+
+.input__signup:focus {
+    border: none;
+    border-bottom: 2px solid white;
+    background: rgb(142, 140, 140);
+    outline: none;
+}
+
+
+.btn__input {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-weight: 800;
+    font-size: 18px;
+    background: linear-gradient(to right, rgb(231, 71, 132), 
+    rgb(0, 170, 255));
+    /* Gradient background */
+    border-radius: 10px;
+    border: none;
+    color: aliceblue;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* Text shadow effect */
+    box-shadow: 0 0 10px rgba(0, 136, 255, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn__input:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgb(255, 13, 0);
+    color: white;
+  }
+  
+  .link__signin {
+    color: aliceblue;
+  }
+
+  .link__signin:hover{
+    color: orangered;
+  }
+
+  .btn__show {
+    width: 300px;
+    height: 400px;
+    margin: 100px;
+  }

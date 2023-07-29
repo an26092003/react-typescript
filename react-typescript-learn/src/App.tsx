@@ -10,6 +10,8 @@ import ProductPage from './pages/ProductPage/ProductPage';
 import Detail from './components/pages/Detail/Detail';
 import Card from './components/pages/Card_pay/Card/Card';
 import Pay from './components/pages/Card_pay/Pay/Pay';
+import SignUp from './components/pages/Account/SignUp/SignUp';
+import SignIn from './components/pages/Account/SignIn/SignIn';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
           <Route path='detail' element={<Detail />} />
           <Route path='card' element={<Card />} />
           <Route path='pay' element={<Pay />} />
+          <Route path='signup' element={<SignUp />} />
+          <Route path='signin' element={<SignIn />} />
         </Route>
       </Routes>
 
