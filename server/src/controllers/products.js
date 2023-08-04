@@ -21,9 +21,11 @@ export const getAll = async (req, res) => {
     if (products.length === 0) {
       res.status(404).json({
         message: "Không có sản phẩm nào",
-      });
+      })
+    } else {
+      
+      return res.status(200).json(products);
     }
-    return res.status(200).json(products);
   } catch (error) {
     return res.status(500).json({
       message: error,

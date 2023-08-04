@@ -1,12 +1,15 @@
 import React from 'react'
 import './Item.css'
 import { Link } from 'react-router-dom'
-const Item = () => {
+import { Product } from '../../interface/product'
+type Prop = Product
+const Item = ({ product }: { product: Product }) => {
+  const {name, price, image, _id} = product
   return (
-    <Link to={''} style={{textDecoration: 'none', minHeight: '257px'}} className="product-card">
-      <img src="https://aristino.com/Data/ResizeImage/images/product/ao-polo/aps157s3/_TC_9181x500x500x4.webp" alt="" />
-      <h6 className='product-name'>Áo thun có cổ ngắn tay Aristino APS157S</h6>
-      <h2 className='product-price'>595.000đ  </h2>
+    <Link to={``} style={{textDecoration: 'none', minHeight: '257px'}} className="product-card">
+      <img src={image} alt="" />
+      <h6 className='prNumberLiteralTypeoduct-name'>{name}</h6>
+      <h2 className='product-price'>{ price}đ  </h2>
     </Link>
   )
 }
