@@ -1,4 +1,4 @@
-import { number } from "joi";
+import { number, string, types } from "joi";
 import mongoose from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2";
 const productSchema = new mongoose.Schema(
@@ -12,8 +12,14 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     image: {
-      type: String,
-      required: true,
+      url: {
+        type: String,
+        required: true,
+      },
+      publicId: {
+        type: String,
+        required: true,
+      }
     },
     categoryId: {
       type: mongoose.Types.ObjectId,
