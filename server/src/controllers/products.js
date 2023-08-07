@@ -61,12 +61,19 @@ export const create = async (req, res) => {
     //     message: error.details[0].message,
     //   });
     // }
-    const product = await Product.create(req.body);
-    if (!product) {
-      return res.status(400).json({
-        message: "Không thể tạo sản phẩm",
-      });
-    }
+    const { name, image, price, description, categoryId } = req.body;
+    const result = await cloudinary.uploader.upload(image);
+    const product = new Product({
+      name,
+      image: {
+        publicId: result.public_id,
+        url: result.secure_url,
+      },
+      price,
+      description,
+      categoryId,
+    });
+    await product.save();
     await Category.findByIdAndUpdate(product.categoryId, {
       $addToSet: {
         products: product._id,
