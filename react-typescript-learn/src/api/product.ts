@@ -40,13 +40,7 @@ export const productApi = createApi({
             }),
             invalidatesTags: ['Products']
         }),
-        uploadImage: builder.mutation < {image: string}, FormData> ({
-            query: (img) => ({
-                url: `/products/upload`,
-                method: 'POST', 
-                body: img
-            })
-        })
+       
 })
 
 })

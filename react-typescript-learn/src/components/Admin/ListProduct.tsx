@@ -4,13 +4,29 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { faPenFancy, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import { Product } from '../../interface/product';
 const ListProduct = () => {
     const [name, setName] = useState<string>('');
     const [price, setPrice] = useState<string>('');
     const [desc, setDesc] = useState<string>('');
-
+    const [image, setImage]  = useState<any>(null);
     // khai báo 1 state errors dảng mảng 
     const [errors, setErrors] = useState<string[]>([]);
+
+    const handleImageUpload = (event: any) =>  {
+    
+        const file = event.target.files[0];
+        
+        const reader = new FileReader();
+            reader.readAsDataURL(file);
+        reader.onloadend = () => {
+              setImage(reader.result)
+              
+            }
+        
+        
+      }
+
     const handleSubmit = () => {
         // tạo ra 1 mảng lỗi mới 
         console.log(123);
@@ -38,9 +54,10 @@ const ListProduct = () => {
         setErrors((prevErrors) => {
             const uniqueErrors = new Set([...prevErrors, ...newErrors]);
             return Array.from(uniqueErrors);
-        }) // lọc xong những phần tử trùng và sẽ 1 mảng lỗi mới vào trong 
+        }) // lọc xong những phần tử trùng và sẽ 1 mảng lỗi mới vào trong
         //state errors
 
+        
     }
     const [showModal, setShowModal] = useState(false);
 
@@ -135,7 +152,13 @@ const ListProduct = () => {
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Image</label>
-                            <input type="file" className="form-control" />
+                            <input type="file" className="form-control" onChange={handleImageUpload}/>
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Category</label>
+                            <select name="" id="">
+                                <option value=""></option>
+                            </select>
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Mô tả</label>
