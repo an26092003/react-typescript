@@ -4,10 +4,10 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { faPenFancy, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
-const ListProduct = () => {
+const User = () => {
     const [name, setName] = useState<string>('');
-    const [price, setPrice] = useState<string>('');
-    const [desc, setDesc] = useState<string>('');
+    const [pass, setPass] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
 
     // khai báo 1 state errors dảng mảng 
     const [errors, setErrors] = useState<string[]>([]);
@@ -22,18 +22,25 @@ const ListProduct = () => {
 
             newErrors.push("Chiều dài name phải lớn hơn 6 ký tự ");
         }
-        if (!price || price.length === 0) {
+        if (!pass || pass.length === 0) {
 
             newErrors.push("Price không được để trống");
         }
-
-        if (!desc || desc.length === 0) {
-
-            newErrors.push("Mô tả không được để trống");
-        } else if (desc.length < 10) { // chiều dài email phải lớn hơn 6 ký tự
+        else if (pass.length < 10) { // chiều dài email phải lớn hơn 6 ký tự
 
             newErrors.push("Chiều dài mô tả phải lớn hơn 10 ký tự ");
         }
+
+        if (!email || email.length === 0) {
+
+            newErrors.push("Email không được để trống");
+        }
+        else if (email.length < 10) { // chiều dài email phải lớn hơn 6 ký tự
+
+            newErrors.push("Chiều dài email phải lớn hơn 10 ký tự ");
+        }
+
+
 
         setErrors((prevErrors) => {
             const uniqueErrors = new Set([...prevErrors, ...newErrors]);
@@ -59,21 +66,23 @@ const ListProduct = () => {
             <table className="table-responsive table__admin">
                 <thead>
                     <tr>
-                        <td>#</td>
+                        <td></td>
                         <th>Name</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Ảnh</th>
+                        <th>Type</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Year</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr className="tr__body">
-                        <td>1</td>
+                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list' /></td>
                         <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
+                        <td>Unassigned</td>
+                        <td>daoan26@gmail.com</td>
+                        <td>Successful</td>
+                        <td>1 year</td>
                         <td style={{ display: 'flex', alignItems: 'center' }}>
                             <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
                             <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
@@ -81,11 +90,12 @@ const ListProduct = () => {
                         </td>
                     </tr>
                     <tr className="tr__body">
-                        <td>1</td>
+                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list' /></td>
                         <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
+                        <td>Unassigned</td>
+                        <td>daoan26@gmail.com</td>
+                        <td>Successful</td>
+                        <td>1 year</td>
                         <td style={{ display: 'flex', alignItems: 'center' }}>
                             <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
                             <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
@@ -93,11 +103,12 @@ const ListProduct = () => {
                         </td>
                     </tr>
                     <tr className="tr__body">
-                        <td>1</td>
+                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list' /></td>
                         <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
+                        <td>Unassigned</td>
+                        <td>daoan26@gmail.com</td>
+                        <td>Successful</td>
+                        <td>1 year</td>
                         <td style={{ display: 'flex', alignItems: 'center' }}>
                             <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
                             <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
@@ -105,11 +116,12 @@ const ListProduct = () => {
                         </td>
                     </tr>
                     <tr className="tr__body">
-                        <td>1</td>
+                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list' /></td>
                         <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
+                        <td>Unassigned</td>
+                        <td>daoan26@gmail.com</td>
+                        <td>Successful</td>
+                        <td>1 year</td>
                         <td style={{ display: 'flex', alignItems: 'center' }}>
                             <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
                             <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
@@ -126,20 +138,16 @@ const ListProduct = () => {
                 <Modal.Body>
                     <form>
                         <div className="mb-3">
+                            <label className="form-label">Email</label>
+                            <input type="email" className="form-control" onChange={(event) => setName(event.target.value)} />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Pass</label>
+                            <input type="password" className="form-control" onChange={(event) => setPass(event.target.value)} />
+                        </div>
+                        <div className="mb-3">
                             <label className="form-label">Name</label>
-                            <input type="text" className="form-control" onChange={(event) => setName(event.target.value)} />
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Price</label>
-                            <input type="number" className="form-control" onChange={(event) => setPrice(event.target.value)} />
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Image</label>
-                            <input type="file" className="form-control" />
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Mô tả</label>
-                            <input type="text" className="form-control" onChange={(event) => setDesc(event.target.value)} />
+                            <input type="text" className="form-control" onChange={(event) => setEmail(event.target.value)} />
                         </div>
 
                         <button type="button" onClick={handleSubmit} className='btn btn-success'>Gửi</button>
@@ -169,4 +177,4 @@ const ListProduct = () => {
     )
 }
 
-export default ListProduct
+export default User

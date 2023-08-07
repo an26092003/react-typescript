@@ -1,13 +1,11 @@
-import AdminMenu from "./AdminMenu"
-import HeaderAd from "./HeaderAd"
 import { Outlet } from "react-router-dom"
-
+import './admin__style.css'
+import AdminMenu from './AdminMenu';
 const LayoutAd = () => {
     return (
-        <div className="container-xxl">
-            <HeaderAd />
-            <Outlet />
+        <div className="content__admin">
             <AdminMenu />
+            <Outlet />
         </div>
 
     )

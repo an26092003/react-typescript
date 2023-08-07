@@ -12,6 +12,11 @@ import Card from './components/pages/Card_pay/Card/Card';
 import Pay from './components/pages/Card_pay/Pay/Pay';
 import SignUp from './components/pages/Account/SignUp/SignUp';
 import SignIn from './components/pages/Account/SignIn/SignIn';
+import LayoutAd from './components/layoutAdmin/LayoutAd';
+import AdminProduct from './components/layoutAdmin/AdminProduct';
+import DashBoard from './components/layoutAdmin/DashBoard';
+import CategoryAdmin from './components/Admin/CategoryAdmin';
+import User from './components/Admin/User';
 
 
 function App() {
@@ -27,6 +32,13 @@ function App() {
           <Route path='pay' element={<Pay />} />
           <Route path='signup' element={<SignUp />} />
           <Route path='signin' element={<SignIn />} />
+        </Route>
+        <Route path='admin' element={<LayoutAd />}>
+          <Route index element={<DashBoard />} />
+          <Route path='product' element={<AdminProduct />} />
+          <Route path='category' element={<CategoryAdmin />} />
+          <Route path='user' element={<User />} />
+
         </Route>
       </Routes>
 
