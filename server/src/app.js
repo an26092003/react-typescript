@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import authRouter from "./routers/auth";
 import routerCategory from "../src/routers/category";
 import routerProduct from "../src/routers/products";
+import uploadRouter from "./routers/upload";
+
 const app = express();
 
 //middleware
@@ -15,6 +17,7 @@ dotenv.config();
 app.use("/api", authRouter);
 app.use("/api", routerCategory);
 app.use("/api", routerProduct);
+app.use("/api", uploadRouter);
 
 mongoose.connect(process.env.MONGODB_CONNECTION);
 
