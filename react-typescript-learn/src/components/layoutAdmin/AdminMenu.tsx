@@ -1,26 +1,61 @@
-import { Link } from "react-router-dom"
-
+import React, { useState } from 'react';
+import { Offcanvas } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faCircleUser, faHouse, faLayerGroup, faList, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 const AdminMenu = () => {
+    const [showOffcanvas, setShowOffcanvas] = useState(false);
+
+    const handleOffcanvasOpen = () => {
+        setShowOffcanvas(true);
+    };
+
+    const handleOffcanvasClose = () => {
+        setShowOffcanvas(false);
+    };
+
     return (
-        <div className="admin-cate pt-5 col-2">
-            <Link to="/admin" className="text-decoration-none text-dark">
-                <div className="d-flex gap-1  ">
-                    <p className="mt-2">Sản Phẩm </p>
-                </div>
-            </Link>
-            <Link to="/admin" className="text-decoration-none text-dark">
-                <div className="d-flex gap-1 mt-4">
-                    <p className="mt-2">Phụ Kiện</p>
-                </div>
-            </Link>
-            <Link to="/admin/user" className="text-decoration-none text-dark">
-                <div className="d-flex gap-1 mt-4">
-                    <p className="mt-2">User</p>
-                </div>
-            </Link>
+        <div className="admin__menu">
+            <button onClick={handleOffcanvasOpen} className='btn__icon'><FontAwesomeIcon icon={faBars} /></button>
+            <Offcanvas show={showOffcanvas} onHide={handleOffcanvasClose} style={{ width: '250px' }}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>My Drawer</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <div className="content__menu-admin">
+                        <Link to="/admin" className='box__li'>
+                            <h5><FontAwesomeIcon icon={faHouse} />Dashboard</h5>
+                        </Link>
+                        <br />
+                        <Link to="/admin/product" className='box__li'>
+                            <h5><FontAwesomeIcon icon={faLayerGroup} />Product</h5>
+                        </Link>
+                        <br />
+                        <Link to="/admin/category" className='box__li'>
+                            <h5><FontAwesomeIcon icon={faList} />Category</h5>
+                        </Link>
+                        <br />
+                        <Link to="/admin/user" className='box__li'>
+                            <h5><FontAwesomeIcon icon={faCircleUser} />User</h5>
+                        </Link>
+                    </div>
+
+                </Offcanvas.Body>
+            </Offcanvas>
+            <div className="input-wrapper">
+                <input type="text" placeholder="Type here..." name="text" className="input" />
+            </div>
+
+            <div className="account__admin">
+                <img src="https://png.pngtree.com/png-vector/20190925/ourlarge/pngtree-sync-account-glyph-icon-vector-png-image_1742905.jpg" alt="" />
+            </div>
+            <div className="icon__font">
+                <FontAwesomeIcon style={{ color: '#212529' }} icon={faRightFromBracket} />
+            </div>
+
         </div>
-    )
-}
+    );
+};
 
 export default AdminMenu

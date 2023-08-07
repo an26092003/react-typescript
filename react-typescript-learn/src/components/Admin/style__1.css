@@ -1,0 +1,54 @@
+.content__list {
+    width: 100%;
+    margin :20px auto;
+}
+.table__admin {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.table__admin1 {
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.tr__body >td{
+    height: 100px;
+    padding: 5px 10px;
+}
+
+.image__list {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.image__list--1 {
+    width: 150px;
+    height: 200px;
+}
+
+thead {
+    border-bottom: 1px solid #ccc;
+}
+thead> tr {
+    background: rgb(224, 230, 232);
+    padding: 5px 10px;
+}
+
+thead > tr>th {
+   height: 40px;
+   padding: 10px;
+}
+
+.img__td {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
