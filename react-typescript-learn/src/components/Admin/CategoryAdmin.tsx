@@ -1,12 +1,13 @@
 import './style__1.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './style__1.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { faPenFancy, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import { useGetProductsQuery } from '../../api/categories';
 const CategoryAdmin = () => {
     const [name, setName] = useState<string>('');
+    const { data: categories = [] } = useGetProductsQuery();
 
 
     // khai báo 1 state errors dảng mảng 
@@ -54,38 +55,18 @@ const CategoryAdmin = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="tr__body">
-                        <td>1</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td style={{ display: 'flex', alignItems: 'center', width: '100px' }}>
-                            <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
-                        </td>
-                    </tr>
-                    <tr className="tr__body">
-                        <td>2</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td style={{ display: 'flex', alignItems: 'center', width: '100px' }}>
-                            <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
-                        </td>
-                    </tr>
-                    <tr className="tr__body">
-                        <td>3</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td style={{ display: 'flex', alignItems: 'center', width: '100px' }}>
-                            <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
-                        </td>
-                    </tr>
-                    <tr className="tr__body">
-                        <td>4</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td style={{ display: 'flex', alignItems: 'center', width: '100px' }}>
-                            <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
-                        </td>
-                    </tr>
+                    {categories.map((categori, index) => (
+                        <tr className="tr__body" key={categori.catgoryId}>
+                            <td>{index + 1}</td>
+                            <td>{categori.nameCate}</td>
+                            <td style={{ display: 'flex', alignItems: 'center', width: '100px' }}>
+                                <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
+                                <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
+                            </td>
+                        </tr>
+                    ))}
+
+
                 </tbody>
             </table>
         </div >
