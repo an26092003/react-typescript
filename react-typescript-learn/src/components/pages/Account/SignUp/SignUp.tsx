@@ -17,6 +17,17 @@ const SignUp = () => {
 
     const [register, { isLoading, isError }] = useRegisterMutation();
 
+    const loadLocalStorage = () => {
+        try {
+            const serializedStore = window.localStorage.getItem('user')
+            if (serializedStore === null) return undefined;
+            return JSON.parse(serializedStore);
+        } catch (e) {
+            console.log(e);
+            return undefined;
+        }
+    }
+
     const handleRegister = () => {
         if (confirmPassword !== password) {
           setError('Mật khẩu xác nhận không khớp');
@@ -26,9 +37,21 @@ const SignUp = () => {
         register({ name, email, password, confirmPassword })
           .unwrap()
           .then((response) => {
-            const token = response.token;
+            localStorage.setItem('user', JSON.stringify(response));
             navigate('/admin');
           })
+            .then(() => {
+                const token = loadLocalStorage()
+                if (token) {
+                    if (token.user.role ==='member') {
+                      navigate('/');
+                        
+                    } else {
+                        navigate('/admin')
+                    }
+                    
+                }
+            })
           .catch((error) => {
             console.log(error);
           });

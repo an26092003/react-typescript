@@ -1,12 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Offcanvas } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCircleUser, faHouse, faLayerGroup, faList, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 const AdminMenu = () => {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
+    const navigate = useNavigate()
 
+    const loadLocalStorage = () => {
+        try {
+            const serializedStore = window.localStorage.getItem('user')
+            if (serializedStore === null) return undefined;
+            return JSON.parse(serializedStore);
+        } catch (e) {
+            console.log(e);
+            return undefined;
+        }
+    }
+    useEffect(() => {
+        const token = loadLocalStorage()
+        if (token) {
+            setIsLogin(true)
+        } else {
+            setIsLogin(false)
+        }
+    })
+    const logOut = () => {
+        localStorage.clear()
+        navigate('/signin')
+    }
     const handleOffcanvasOpen = () => {
         setShowOffcanvas(true);
     };
@@ -51,7 +75,7 @@ const AdminMenu = () => {
                 <img src="https://png.pngtree.com/png-vector/20190925/ourlarge/pngtree-sync-account-glyph-icon-vector-png-image_1742905.jpg" alt="" />
             </div>
             <div className="icon__font">
-                <FontAwesomeIcon style={{ color: '#212529' }} icon={faRightFromBracket} />
+                <FontAwesomeIcon style={{ color: '#212529' }} icon={faRightFromBracket} onClick={logOut}/>
             </div>
 
         </div>

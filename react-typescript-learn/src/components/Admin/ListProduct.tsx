@@ -5,27 +5,27 @@ import Button from 'react-bootstrap/Button';
 import { faPenFancy, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import { Product } from '../../interface/product';
+import { useGetProductsQuery, useAddProductMutation, useRemoveProductMutation } from '../../api/product';
+import { useGetCategoriesQuery } from '../../api/category';
 const ListProduct = () => {
     const [name, setName] = useState<string>('');
-    const [price, setPrice] = useState<string>('');
+    const [price, setPrice] = useState<number>(0);
     const [desc, setDesc] = useState<string>('');
-    const [image, setImage]  = useState<any>(null);
+    const [image, setImage] = useState<any>(null);
+    const [categoryId, setCategoryId] = useState<string | number>('');
+    const { data: products, isLoading, isError } = useGetProductsQuery()
+    const [addProduct, { isLoading: isAddLoading }] = useAddProductMutation()
+    const [removeProduct, { isLoading: isRemoveLoading }] = useRemoveProductMutation()
+    const {data: categories} = useGetCategoriesQuery()
     // khai báo 1 state errors dảng mảng 
     const [errors, setErrors] = useState<string[]>([]);
 
-    const handleImageUpload = (event: any) =>  {
-    
-        const file = event.target.files[0];
-        
-        const reader = new FileReader();
-            reader.readAsDataURL(file);
-        reader.onloadend = () => {
-              setImage(reader.result)
-              
-            }
-        
-        
-      }
+    const onRemove = (id: string | number) => {
+       
+        if (window.confirm('Are you sure you want to remove')) {
+            removeProduct(id)
+        }
+    }
 
     const handleSubmit = () => {
         // tạo ra 1 mảng lỗi mới 
@@ -38,7 +38,7 @@ const ListProduct = () => {
 
             newErrors.push("Chiều dài name phải lớn hơn 6 ký tự ");
         }
-        if (!price || price.length === 0) {
+        if (!price) {
 
             newErrors.push("Price không được để trống");
         }
@@ -57,7 +57,19 @@ const ListProduct = () => {
         }) // lọc xong những phần tử trùng và sẽ 1 mảng lỗi mới vào trong
         //state errors
 
-        
+        const product = {
+            name,
+            price, 
+            image,
+            description: desc,
+            categoryId
+        } 
+
+        addProduct(product).unwrap()
+            .then(() => {
+            alert('success')
+        })
+
     }
     const [showModal, setShowModal] = useState(false);
 
@@ -85,54 +97,22 @@ const ListProduct = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="tr__body">
-                        <td>1</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
+                    {products?.map((product: Product, index: number) => (
+
+                    <tr key={product._id} className="tr__body">
+                            <td>{ index + 1}</td>
+                            <td>{product.name}</td>
+                            <td>{ product.price}</td>
+                            <td>{product.description}</td>
+                        <td><img src={product.image.url} alt="" className='image__list--1' /></td>
                         <td style={{ display: 'flex', alignItems: 'center' }}>
                             <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
+                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} onClick={() => onRemove(product._id!)}/></button>
 
                         </td>
                     </tr>
-                    <tr className="tr__body">
-                        <td>1</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
-                        <td style={{ display: 'flex', alignItems: 'center' }}>
-                            <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
-
-                        </td>
-                    </tr>
-                    <tr className="tr__body">
-                        <td>1</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
-                        <td style={{ display: 'flex', alignItems: 'center' }}>
-                            <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
-
-                        </td>
-                    </tr>
-                    <tr className="tr__body">
-                        <td>1</td>
-                        <td>Đào Duy Ẩn</td>
-                        <td>70.000</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aspernatur a rerum itaque sint quae assumenda iusto non provident culpa porro sit. Expedita consectetur quidem, tempora sequi odit itaque voluptates!</td>
-                        <td><img src="https://savani.vn/images/products/2022/11/28/large/ao-so-mi-nu-WLS005-3-B0057-1.jpg" alt="" className='image__list--1' /></td>
-                        <td style={{ display: 'flex', alignItems: 'center' }}>
-                            <button className='btn btn-info'><FontAwesomeIcon icon={faPenFancy} /></button>
-                            <button className='btn btn-warning'><FontAwesomeIcon icon={faTrash} /></button>
-
-                        </td>
-                    </tr>
+                    ))}
+                    
                 </tbody>
             </table>
         </div>
@@ -148,16 +128,21 @@ const ListProduct = () => {
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Price</label>
-                            <input type="number" className="form-control" onChange={(event) => setPrice(event.target.value)} />
+                            <input type="number" className="form-control" onChange={(event) => setPrice(+event.target.value)} />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Image</label>
-                            <input type="file" className="form-control" onChange={handleImageUpload}/>
+                            <input type="text" className="form-control" onChange={(event) => setImage(event.target.value)} />
                         </div>
+                        
                         <div className="mb-3">
-                            <label className="form-label">Category</label>
-                            <select name="" id="">
-                                <option value=""></option>
+                            <label className="form-label" >Category</label>
+                            <select name="" id="" onChange={(event) => setCategoryId(event.target.value)}>
+                                {categories?.map((category) => (
+                                    <option value={category._id}>{ category.name}</option>
+                                ))}
+                                
+                                
                             </select>
                         </div>
                         <div className="mb-3">

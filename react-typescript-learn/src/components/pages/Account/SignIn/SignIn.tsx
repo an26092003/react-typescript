@@ -14,16 +14,41 @@ const SignIn = () => {
 
     const [login, { isLoading, isError }] = useLoginMutation();
 
+     const loadLocalStorage = () => {
+        try {
+            const serializedStore = window.localStorage.getItem('user')
+            if (serializedStore === null) return undefined;
+            return JSON.parse(serializedStore);
+        } catch (e) {
+            console.log(e);
+            return undefined;
+        }
+    }
     const handleLogin = () => {
         login({ email, password })
           .unwrap()
           .then((response) => {
-            const token = response.token;
+              console.log(response);
+              localStorage.setItem('user', JSON.stringify(response));
+              
+          })
+            .then(() => {
+                const token = loadLocalStorage()
+                if (token) {
+                    if (token.user.role ==='member') {
+                      navigate('/');
+                        
+                    } else {
+                        navigate('/admin')
+                    }
+                    
+                }
+                console.log(token.accessToken);
+                
           })
           .catch((error) => {
             console.log(error)
           });
-          navigate('/admin');
       };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -3,13 +3,37 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, Button, OverlayTrigger, Popover, InputGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faRightFromBracket, faBell, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Menu: React.FC = () => {
     const [searchText, setSearchText] = useState('');
     const [showPopover, setShowPopover] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     const popoverRef = useRef<HTMLDivElement>(null);
-
+    const navigate = useNavigate()
+    const loadLocalStorage = () => {
+        try {
+            const serializedStore = window.localStorage.getItem('user')
+            if (serializedStore === null) return undefined;
+            return JSON.parse(serializedStore);
+        } catch (e) {
+            console.log(e);
+            return undefined;
+        }
+    }
+    useEffect(() => {
+        const token = loadLocalStorage()
+        if (token) {
+            setIsLogin(true)
+        } else {
+            setIsLogin(false)
+        }
+    })
+    const logOut = () => {
+        localStorage.clear()
+        navigate('/signin')
+    }
+    
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);
     };
@@ -45,8 +69,8 @@ const Menu: React.FC = () => {
         <Popover id="popover-basic" ref={popoverRef}>
             <Popover.Body>
                 <Nav>
-                    <Nav.Link href="#login">Login</Nav.Link>
-                    <Nav.Link href="#register">Register</Nav.Link>
+                    <Nav.Link href="signin">Login</Nav.Link>
+                    <Nav.Link href="signup">Register</Nav.Link>
                 </Nav>
             </Popover.Body>
         </Popover>
@@ -97,9 +121,12 @@ const Menu: React.FC = () => {
                                 <FontAwesomeIcon style={{ color: '#212529', paddingLeft: '12px', paddingRight: '12px' }} icon={faUser} />
                             </Nav.Link>
                         </OverlayTrigger>
-                        <Nav.Link>
-                            <FontAwesomeIcon style={{ color: '#212529', paddingLeft: '12px', paddingRight: '12px' }} icon={faRightFromBracket} />
-                        </Nav.Link>
+                        {
+                            isLogin ? <Nav.Link>
+                            <FontAwesomeIcon style={{ color: '#212529', paddingLeft: '12px', paddingRight: '12px' }} icon={faRightFromBracket} onClick={logOut}/>
+                        </Nav.Link> : ''
+                        }
+                        
                         <Nav.Link>
                             <FontAwesomeIcon style={{ color: '#212529', paddingLeft: '12px', paddingRight: '12px' }} icon={faBell} />
                         </Nav.Link>
