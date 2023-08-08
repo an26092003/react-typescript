@@ -1,6 +1,8 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import { Product } from '../interface/product'
 
+
+
 export const productApi = createApi({
     reducerPath: 'products',
     tagTypes: ['Products'],
@@ -15,6 +17,7 @@ export const productApi = createApi({
         }),
         getProductById: builder.query<Product, number | string>({
             query: (id) => `/products/${id}`,
+             
             providesTags: ['Products']
         }),
         removeProduct: builder.mutation<void, string | number>({
@@ -29,7 +32,8 @@ export const productApi = createApi({
                 url: `/products`,
                 method: 'POST',
                 body: product
-            }),
+            })
+            ,
             invalidatesTags: ['Products']
         }),
         updateProduct: builder.mutation<Product, Product>({
